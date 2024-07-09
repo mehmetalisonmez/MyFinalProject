@@ -22,8 +22,9 @@ namespace DataAccess.Concrete.EntityFramework
             // Trusted_Connection=true   == Kullanıcı adı şifre olmadan erişebileceğimizi belirttik. Gerçek projelerde çok güçlü domain var ise bu şekilde giriş yapılır
         }
 
-        public DbSet<Product>  Products { get; set; }  //Benim hangi class'ım hangi tabloya denk geliyor onu belirtyioruz
+        public DbSet<Product>  Products { get; set; }  //Benim hangi class'ım veritabanındaki hangi tabloya denk geliyor onu belirtyioruz
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
