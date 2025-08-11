@@ -22,7 +22,7 @@ namespace Core.Utilities.Interceptors
                 .GetCustomAttributes<MethodInterceptionBaseAttribute>(true); 
             classAttributes.AddRange(methodAttributes);
             //classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger)));   //Bu kod şuan bizde log olmadığı için çalışmaz ama şu anlama gelir. Otomatik olarak sistemdeki bütün metodları log2a dahil et
-
+                                                                                    //Buraya mesela her metodda kullanılsın şeklinde Performance aspect'ini kullanabiliriz!!
             return classAttributes.OrderBy(x => x.Priority).ToArray();  //Onların çalışma sırasınıda priority'e göre sırala
         }
     }

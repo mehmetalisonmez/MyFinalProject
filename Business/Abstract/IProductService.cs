@@ -18,5 +18,10 @@ namespace Business.Abstract
         IDataResult<List<Product>> GetAllByCategoryId(int id);
         IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max);
         IDataResult<List<ProductDetailDto>> getProductDetails();
+        IResult AddTransactionalTest(Product product); // Transaction yönetimi uygulamalrda tutarlılığı korumak için yaptığımız yöntem
+        //Örneğin benim ehsabım 100 tl var kerem in hesabına 10 tl aktarıcam bu nedemek benim hesabımda 10 tl eksilecek şekilde update edilmesi
+        // ve Kerem'in ehsabına 10 tl artacak şekilde update elimesi yani 2 işlem var aynı süreçte 2 tane veritabanı işi var fakat
+        //benim hesabımdan giderken güncelledi fakar kerem'in hesabına yazrken sistem hata verdi .İşlemi geri almak gerekiyor.Bu nasıl yapılır?
+        //.NET ' de dispose pattern'de TransactionalScope denen sınıf ile yapılır
     }
 }

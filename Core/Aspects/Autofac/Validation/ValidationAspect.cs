@@ -24,7 +24,7 @@ namespace Core.Aspects.Autofac.Validation
         }
         protected override void OnBefore(IInvocation invocation)  //İşte OnBefore içini doldurdfuğumuz yer burası!!! (override ile)
         {
-            var validator = (IValidator)Activator.CreateInstance(_validatorType);  //Göndürdüğümüz tipte bir instance üretiyor!  (Bu reflection'dır) Reflection çalışma anında bir şeyleri çalıştırabilmemizi mesela new'leme işlemini burada çalışma anında yapıyor.
+            var validator = (IValidator)Activator.CreateInstance(_validatorType);  //Gönderdiğimiz tipte bir instance üretiyor!  (Bu reflection'dır) Reflection çalışma anında bir şeyleri çalıştırabilmemizi mesela new'leme işlemini burada çalışma anında yapıyor.
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];   //Mesela gönderdiğimiz tip ProductValidator olsun. Bu satırda ProductValitor'ın çalışma tipini bul ve onun generic argümanlarından ilkini bul diyor. 
             var entities = invocation.Arguments.Where(t => t.GetType() == entityType);  //Sonra çalıştıracağımız metodun(Add)  parametrelerine bak. Ve bir üstte bulunan Generic tipe eşit olanları bul diyor 
             foreach (var entity in entities)

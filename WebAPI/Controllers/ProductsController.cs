@@ -45,6 +45,19 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbycategory")]
+        public IActionResult GetByCategory(int categoryId)
+        {
+            var result = _productService.GetAllByCategoryId(categoryId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
         [HttpPost("add")]
         public IActionResult Add(Product product) //PostRequest'lerde bir şey göndermem lazım. Data'yı postful'da body kıusmında json tipi olara kverbiliriz
         {

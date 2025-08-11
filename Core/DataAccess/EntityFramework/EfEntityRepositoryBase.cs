@@ -20,6 +20,7 @@ namespace Core.DataAccess.EntityFramework
 
 
         //NuGet 
+
         public void Add(TEntity entity)
         {
             using (TContext context = new TContext())  //C#'a özel using içine yadığımız nesneler using bitince anında garbage collector'a giderek beni bellekten at diyor!
